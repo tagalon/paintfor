@@ -38,12 +38,14 @@ def main():
     selected_lang = st.selectbox(select_q, format_langs(), index=format_langs().index(st.session_state.selected_lang))
     st.session_state.selected_lang = selected_lang
 
-    title = "Your Comprehensive Guide to Picking the Best Paint!"
+    title = "Paintfor"
+    intro = "Generating personalized paint guides!"
     # title = translate_text(title, st.session_state.selected_lang)
-    st.title("🎨" + title + "🎨")
+    st.title(title + " 🎨")
+    st.subheader(intro)
 
     with st.form(key='paint_form'):
-        form_intro = "Answer the questions below and get a personalized paint recommendation!"
+        form_intro = "Answer Paintfor's questions below and get a personalized paint recommendation!"
         # form_intro = translate_text(form_intro, st.session_state.selected_lang)
         st.write(form_intro)
 
