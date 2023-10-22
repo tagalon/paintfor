@@ -38,7 +38,7 @@ def main():
     st.session_state.selected_lang = selected_lang
 
     title = "Your Comprehensive Guide to Picking the Best Paint!"
-    title = translate_text(title, st.session_state.selected_lang)
+    # title = translate_text(title, st.session_state.selected_lang)
     st.title("🎨" + title + "🎨")
 
     with st.form(key='paint_form'):
