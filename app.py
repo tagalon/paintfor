@@ -208,7 +208,7 @@ def get_response_from_chatgpt(prompt, lang=None):
     print(response_data)
     response_text = response_data['choices'][0]['message']['content']
     write(response_text)
-    if lang:
+    if lang != "English":
         response_text = translate_text(response_text, lang)
     return response_text
 
