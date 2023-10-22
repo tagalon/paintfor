@@ -33,8 +33,8 @@ def main():
     select_q = 'Select your language'
     if 'selected_lang' not in st.session_state:
         st.session_state.selected_lang = 'English'
-    select_q = translate_text(select_q, st.session_state.selected_lang)
-    selected_lang = st.selectbox(select_q, format_langs(), index=format_langs().index(st.session_state.selected_lang))
+    # select_q = translate_text(select_q, st.session_state.selected_lang)
+    selected_lang = st.selectbox(st.session_state.selected_lang, format_langs(), index=format_langs().index(st.session_state.selected_lang))
     st.session_state.selected_lang = selected_lang
 
     title = "Your Comprehensive Guide to Picking the Best Paint!"
