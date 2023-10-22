@@ -2,8 +2,6 @@ from googletrans import Translator, LANGUAGES
 import time
 import re
 
-from google_trans_new import google_translator  
-
 
 def split_string(s):
     parts = re.split(r' (\(SW \d+\))', s)
@@ -28,9 +26,9 @@ def format_langs():
 
 def translate_text(text, lang):
     lang_code = get_lang_code(lang)
-    translator = google_translator()
+    translator = Translator()
     translated = translator.translate(text, dest=lang_code)
-    return translated.text
+    return translated
 
 # Given a language name, find the language code:
 def get_lang_code(lang_name):
