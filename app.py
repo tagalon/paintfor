@@ -2,6 +2,7 @@
 import streamlit as st
 import requests 
 import openai
+import os
 import json
 from translate import format_langs, translate_text, split_string
 from data import fields
@@ -181,8 +182,8 @@ def generate_enriched_prompt(location, surface, sheen, colors, messy, eco_friend
 def get_response_from_chatgpt(prompt, lang=None):
     # Set up the endpoint and headers
     endpoint_url = "https://api.openai.com/v1/chat/completions"
-    openai.api_key = st.secrets['OPENAI_API_KEY']
-
+    os.environ["OPENAI_API_KEY"] = st.secrets['OPENAI_API_KEY']
+    openai.api_key = os.environ["OPENAI_API_KEY"]
     headers = {
         "Authorization": f"Bearer {openai.api_key}",
         "Content-Type": "application/json",
