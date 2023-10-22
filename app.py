@@ -55,7 +55,7 @@ def main():
         # q1_arg = translate_texts(q1_arg)
         location = st.radio('', q1_arg)
         
-        q1_why = "Why? Paints are made differently for inside and outside. Outdoor paints are tou3_leagh and can handle rain and sun, while indoor paints are usually smoother and cleaner."
+        q1_why = "Why? Paints are made differently for inside and outside. Outdoor paints are tough and can handle rain and sun, while indoor paints are usually smoother and cleaner."
         # q1_why = translate_text(title, st.session_state.selected_lang)
         st.write(q1_why)
 
@@ -63,6 +63,7 @@ def main():
         # q2 = translate_text(q2, st.session_state.selected_lang)
         st.header("2. "+q2)
         q2_arg = ['Wood', 'Metal', 'Wall (like drywall or plaster)', 'Brick or Stone']
+        q1_why = "Paint composition can be based off surfaces and when paint is applied on a surface, it may change the appeal of the finished result."
         # q2_arg = translate_texts(q2_arg)
         surface = st.radio('', q2_arg)
 
@@ -193,7 +194,7 @@ def get_response_from_chatgpt(prompt, lang=None):
 
     # Define the request payload
     data = {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4",
         "messages": [
         {"role": "system", "content": "You are a profesional paint specialist."},
         {"role": "user", "content": prompt}],
