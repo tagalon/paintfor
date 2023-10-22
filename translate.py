@@ -2,6 +2,9 @@ from googletrans import Translator, LANGUAGES
 import time
 import re
 
+from google_trans_new import google_translator  
+
+
 def split_string(s):
     parts = re.split(r' (\(SW \d+\))', s)
     return [part.strip() for part in parts if part]
@@ -25,7 +28,7 @@ def format_langs():
 
 def translate_text(text, lang):
     lang_code = get_lang_code(lang)
-    translator = Translator(service_urls=['translate.googleapis.com'])
+    translator = google_translator()
     translated = translator.translate(text, dest=lang_code)
     return translated.text
 
