@@ -25,7 +25,7 @@ def format_langs():
 
 def translate_text(text, lang):
     lang_code = get_lang_code(lang)
-    translator = Translator()
+    translator = Translator(service_urls=['translate.googleapis.com'])
     translated = translator.translate(text, dest=lang_code)
     return translated.text
 
