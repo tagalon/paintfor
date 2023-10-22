@@ -196,7 +196,7 @@ def get_response_from_chatgpt(prompt, lang=None):
 
     # Define the request payload
     data = {
-        "model": "gpt-4",
+        "model": "gpt-3.5-turbo",
         "messages": [
         {"role": "system", "content": "You are a profesional paint specialist."},
         {"role": "user", "content": prompt}],
