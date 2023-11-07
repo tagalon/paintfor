@@ -168,7 +168,7 @@ def main():
                     
 
 def generate_enriched_prompt(location, surface, sheen, colors, messy, eco_friendly, primer_needed):
-    base_prompt = "Provide a comprehensive guide for a user looking to paint a project. Here are the details:\n"
+    base_prompt = "Provide a comprehensive guide for the given user looking to paint a project. Here are the details:\n"
 
     location_detail = f"- **Location**: {location}\n"
     surface_detail = f"- **Surface**: {surface}\n"
@@ -177,8 +177,8 @@ def generate_enriched_prompt(location, surface, sheen, colors, messy, eco_friend
     messy_detail = f"- **Area Type**: {'Busy/messy area' if messy.startswith('Yes') else 'Standard area'}\n"
     eco_detail = f"- **Environmental Concern**: {'Yes' if eco_friendly.startswith('Yes') else 'No'}\n"
     primer_detail = f"- **Primer Concern**: {primer_needed}\n"
-
-    prompt = base_prompt + location_detail + surface_detail + sheen_detail + color_detail + messy_detail + eco_detail + primer_detail
+    additional_concerns = "Include tools and materials needed, as well as how to paint horizontal & vertical surfaces"
+    prompt = base_prompt + location_detail + surface_detail + sheen_detail + color_detail + messy_detail + eco_detail + primer_detail + additional_concerns
 
     return prompt
 
@@ -198,7 +198,7 @@ def get_response_from_chatgpt(prompt, lang=None):
     data = {
         "model": "gpt-3.5-turbo",
         "messages": [
-        {"role": "system", "content": "You are a profesional paint specialist."},
+        {"role": "system", "content": "You are a professional paint specialist."},
         {"role": "user", "content": prompt}],
         "max_tokens": 2000,  # adjust this as needed
     }
@@ -227,7 +227,7 @@ Provide a comprehensive guide for a user looking to paint a project. Here are th
 - **Area Type**: Busy/messy area
 - **Environmental Concern**: Yes
 - **Primer Concern**: I'm not sure.
-Include how to paint horizontal & verticla surfaces
+Include how to paint horizontal & vertical surfaces
 """
 
 # Sample user responses for testing

@@ -28,7 +28,7 @@ def translate_text(text, lang):
     lang_code = get_lang_code(lang)
     translator = Translator()
     translated = translator.translate(text, dest=lang_code)
-    return translated
+    return translated.text
 
 # Given a language name, find the language code:
 def get_lang_code(lang_name):
